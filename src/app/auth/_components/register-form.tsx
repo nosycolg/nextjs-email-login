@@ -5,13 +5,11 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
 import { signIn } from "next-auth/react"
-import { toast } from "@/components/ui/use-toast"
 
 export function RegisterForm() {
     const { register, handleSubmit } = useForm()
     const onSubmit = handleSubmit(async data => {
         await signIn('email', { email: data.email })
-        toast(<p>teste</p>)
     })
 
     return (
@@ -25,21 +23,6 @@ export function RegisterForm() {
                 <form action="#" className="mt-8 space-y-6" method="POST" onSubmit={onSubmit}>
                     <input defaultValue="true" name="remember" type="hidden" />
                     <div className="-space-y-px rounded-md shadow-sm">
-                        {/* <div>
-                            <Label className="sr-only" htmlFor="name">
-                                Name
-                            </Label>
-                            <Input
-                                {...register('name')}
-                                autoComplete="name"
-                                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400"
-                                id="name"
-                                name="name"
-                                placeholder="Name"
-                                required
-                                type="text"
-                            />
-                        </div> */}
                         <div>
                             <Label className="sr-only" htmlFor="email-address">
                                 Email address
@@ -47,7 +30,7 @@ export function RegisterForm() {
                             <Input
                                 {...register('email')}
                                 autoComplete="email"
-                                className="relative block w-full appearance-none rounded-none border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400"
+                                className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400"
                                 id="email-address"
                                 name="email"
                                 placeholder="Email address"
@@ -55,29 +38,14 @@ export function RegisterForm() {
                                 type="email"
                             />
                         </div>
-                        {/* <div>
-                            <Label className="sr-only" htmlFor="password">
-                                Password
-                            </Label>
-                            <Input
-                                {...register('password')}
-                                autoComplete="current-password"
-                                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-400"
-                                id="password"
-                                name="password"
-                                placeholder="Password"
-                                required
-                                type="password"
-                            />
-                        </div> */}
                     </div>
                     <div>
                         <Button
-                            className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-indigo-600"
+                            className="group relative flex w-full justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
                             type="submit"
                         >
                             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                                <LockIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" />
+                                <LockIcon className="h-5 w-5 text-white group-hover:text-gray-50" />
                             </span>
                             Sign up
                         </Button>
